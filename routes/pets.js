@@ -55,4 +55,15 @@ module.exports = (app) => {
       return res.redirect('/')
     });
   });
+
+  // SEARCH PET
+  app.get('/search', (req, res) => {
+
+      //Define the term to a reg expression with case insensitivity
+      term = new RegExp(req.query.term, 'i')
+    
+    Pet.find({'name': term}).exec((err, pets) => {
+        res.render('pets-index', { pets: pets });    
+    });
+});
 }
