@@ -116,4 +116,16 @@ describe('Pets', ()  => {
       });
     });
   });
+
+  // TEST SEARCH
+  it('should sear ALL pets by name on /search GET', (done) => {
+    chai.request(server)
+    .get('/search?term=norman')
+    .end((err, res) => {
+      //This test should return a status of 200 and render a page
+      res.should.have.status(200);
+      res.should.be.html;
+      done();
+    });
+  });
 });
