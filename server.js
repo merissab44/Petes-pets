@@ -5,10 +5,19 @@ if (!process.env.PORT) {
 
 const express = require('express');
 const path = require('path');
+//visual cue that client software, 
+//like browsers, use to identify a site
 const favicon = require('serve-favicon');
+// logs the information about each HTTP request.
 const logger = require('morgan');
+//middleware which parses cookies attached to 
+//the client request object.
 const cookieParser = require('cookie-parser');
+//body-parser extracts the entire body portion of an 
+//incoming request stream and exposes it on req. body . 
 const bodyParser = require('body-parser');
+//for requests from clients that only natively 
+//support simple verbs like GET and POST.
 const methodOverride = require('method-override')
 
 const app = express();
