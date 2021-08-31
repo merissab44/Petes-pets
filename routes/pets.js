@@ -60,13 +60,17 @@ module.exports = (app) => {
   app.get('/search', (req, res) => {
 
       //Define the term to a reg expression with case insensitivity
-      term = new RegExp(req.query.term, 'i')
+      const term = new RegExp(req.query.term, 'i')
+
+      const page = req.query.page || 1
     
-    Pet.find({$or:[
+    Pet.paginate({$or:[
       {'name': term},
       {'species': term}
-    ]}).exec((err, pets) => {
-        res.render('pets-index', { pets: pets });    
+    ]
+  },
+  {page: page}).then((results) => {
+        res.render('pets-index', { pets: results.docs, pagesCount: results.pages, currentPage: page, term: req.query.term });    
     });
 });
 }
