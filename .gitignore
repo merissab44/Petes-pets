@@ -72,6 +72,8 @@ typings/
 # Optional npm cache directory
 .npm
 
+# uploads folder
+uploads/
 # Optional eslint cache
 .eslintcache
 

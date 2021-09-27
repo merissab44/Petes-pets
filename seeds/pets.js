@@ -1,7 +1,3 @@
-const multer = require('multer');
-const upload = multer({dest: 'uploads/'});
-const Upload = require('s3-uploader');
-
 module.exports = [
     {
         "name": "Rex",
@@ -81,5 +77,5 @@ module.exports = [
         "price": 9.99,
         "picUrlSq": "http://via.placeholder.com/250x250",
         "description": "Bubba is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
-    }
+    },
 ]
