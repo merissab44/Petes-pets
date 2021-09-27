@@ -1,3 +1,7 @@
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'});
+const Upload = require('s3-uploader');
+
 module.exports = [
     {
         "name": "Rex",
